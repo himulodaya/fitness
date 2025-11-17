@@ -1,0 +1,599 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.install-button {
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    transition: all 0.3s;
+}
+
+.install-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.install-button:active {
+    transform: translateY(0);
+}
+
+.main-content {
+    padding: 30px;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    border: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 120px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab-button:hover {
+    background: #bdc3c7;
+    transform: translateY(-2px);
+}
+
+.tab-button:active {
+    transform: translateY(0);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.program-selector {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 25px;
+    border: 3px solid #ecf0f1;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.program-card:active {
+    transform: translateY(-2px);
+}
+
+.program-card.selected {
+    border-color: #3498db;
+    background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%);
+}
+
+.program-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.week-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.week-button {
+    padding: 12px 20px;
+    border: 2px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 80px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.week-button:hover {
+    background: #ebf5fb;
+}
+
+.week-button:active {
+    transform: scale(0.95);
+}
+
+.week-button.active {
+    background: #3498db;
+    color: white;
+}
+
+.day-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.day-button {
+    padding: 12px 20px;
+    border: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 80px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.day-button:hover {
+    background: #bdc3c7;
+}
+
+.day-button:active {
+    transform: scale(0.95);
+}
+
+.day-button.active {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+}
+
+.workout-content {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.exercise-block {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3498db;
+}
+
+.exercise-block h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.exercise-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    gap: 15px;
+}
+
+.exercise-checkbox {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    cursor: pointer;
+    margin-top: 2px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.exercise-details {
+    flex: 1;
+}
+
+.exercise-name {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.exercise-specs {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.exercise-cues {
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.tracking-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+.tracking-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+}
+
+.challenge-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.challenge-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #3498db;
+}
+
+.challenge-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.challenge-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.challenge-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.challenge-input-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.challenge-input-group input {
+    padding: 12px;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.challenge-input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.progress-indicator {
+    background: #ecf0f1;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #27ae60 0%, #229954 100%);
+    transition: width 0.3s;
+}
+
+.save-button {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.save-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.save-button:active {
+    transform: translateY(0);
+}
+
+.reset-button {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: all 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.schedule-day {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #ecf0f1;
+}
+
+.schedule-day.workout {
+    border-color: #3498db;
+    background: #ebf5fb;
+}
+
+.schedule-day.mobility {
+    border-color: #27ae60;
+    background: #d5f4e6;
+}
+
+.schedule-day.rest {
+    border-color: #95a5a6;
+    background: #ecf0f1;
+}
+
+.schedule-day strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.about-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    line-height: 1.8;
+}
+
+.about-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.force-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.force-component {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #e74c3c;
+}
+
+.force-component h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.05em;
+    }
+
+    .week-button, .day-button {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-selector {
+        flex-direction: column;
+    }
+
+    .program-card {
+        min-width: 100%;
+    }
+
+    .challenge-section {
+        grid-template-columns: 1fr;
+    }
+
+    .save-button, .reset-button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .exercise-item {
+        padding: 12px;
+    }
+
+    .exercise-checkbox {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+
+    .tracking-input {
+        max-width: 100%;
+    }
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .tab-button,
+    .week-button,
+    .day-button,
+    .program-card,
+    .save-button,
+    .reset-button,
+    .install-button {
+        min-height: 48px;
+    }
+
+    .exercise-checkbox {
+        min-width: 32px;
+        min-height: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* PWA specific styles */
+@media all and (display-mode: standalone) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+}
