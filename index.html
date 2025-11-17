@@ -23,6 +23,10 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <div class="container">
@@ -166,38 +170,227 @@
             <!-- Schedule Section -->
             <div id="schedule" class="section">
                 <div class="info-card">
-                    <h3>Weekly Schedule</h3>
-                    <p>Your 6-week training schedule at a glance</p>
+                    <h3>Customize Your Weekly Schedule</h3>
+                    <p>Select which days you'll train. Day order (1-4) is always followed.</p>
                 </div>
 
-                <div class="schedule-grid">
-                    <div class="schedule-day workout">
-                        <strong>Monday</strong>
-                        <p>Strength & Conditioning Day 1</p>
+                <!-- Days Picker -->
+                <div class="schedule-picker-container">
+                    <h3 style="margin-bottom: 15px;">Select Training Days</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Choose days for Day 1 through Day 4 (in order). Optional Mobility can be any day.</p>
+
+                    <!-- Day 1 -->
+                    <div class="day-picker-row">
+                        <div class="day-picker-label">
+                            <strong>Day 1</strong>
+                            <span class="day-picker-description">Strength & Conditioning</span>
+                        </div>
+                        <div class="day-picker-options">
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="monday" checked>
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="tuesday">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="wednesday">
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="thursday">
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="friday">
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="saturday">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day1" value="sunday">
+                                <span>Sun</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="schedule-day rest">
-                        <strong>Tuesday</strong>
-                        <p>OFF</p>
+
+                    <!-- Day 2 -->
+                    <div class="day-picker-row">
+                        <div class="day-picker-label">
+                            <strong>Day 2</strong>
+                            <span class="day-picker-description">Strength & Conditioning</span>
+                        </div>
+                        <div class="day-picker-options">
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="monday">
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="tuesday">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="wednesday" checked>
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="thursday">
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="friday">
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="saturday">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day2" value="sunday">
+                                <span>Sun</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="schedule-day workout">
-                        <strong>Wednesday</strong>
-                        <p>Strength & Conditioning Day 2</p>
+
+                    <!-- Day 3 -->
+                    <div class="day-picker-row">
+                        <div class="day-picker-label">
+                            <strong>Day 3</strong>
+                            <span class="day-picker-description">Light Cardio & Mobility</span>
+                        </div>
+                        <div class="day-picker-options">
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="monday">
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="tuesday">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="wednesday">
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="thursday" checked>
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="friday">
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="saturday">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day3" value="sunday">
+                                <span>Sun</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="schedule-day mobility">
-                        <strong>Thursday</strong>
-                        <p>Mobility Day 3</p>
+
+                    <!-- Day 4 -->
+                    <div class="day-picker-row">
+                        <div class="day-picker-label">
+                            <strong>Day 4</strong>
+                            <span class="day-picker-description">Strength & Conditioning</span>
+                        </div>
+                        <div class="day-picker-options">
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="monday">
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="tuesday">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="wednesday">
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="thursday">
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="friday" checked>
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="saturday">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="radio" name="day4" value="sunday">
+                                <span>Sun</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="schedule-day workout">
-                        <strong>Friday</strong>
-                        <p>Strength & Conditioning Day 4</p>
+
+                    <!-- Optional Mobility -->
+                    <div class="day-picker-row">
+                        <div class="day-picker-label">
+                            <strong>Optional Mobility</strong>
+                            <span class="day-picker-description">Light stretching and recovery</span>
+                        </div>
+                        <div class="day-picker-options">
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="monday">
+                                <span>Mon</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="tuesday">
+                                <span>Tue</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="wednesday">
+                                <span>Wed</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="thursday">
+                                <span>Thu</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="friday">
+                                <span>Fri</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="saturday">
+                                <span>Sat</span>
+                            </label>
+                            <label class="day-option">
+                                <input type="checkbox" name="mobility" value="sunday" checked>
+                                <span>Sun</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="schedule-day rest">
-                        <strong>Saturday</strong>
-                        <p>OFF</p>
+
+                    <button class="save-button" onclick="saveSchedule()" style="margin-top: 20px;">Save Schedule</button>
+                </div>
+
+                <!-- Preview Schedule -->
+                <div style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 15px;">Your Weekly Schedule</h3>
+                    <div id="schedule-preview" class="schedule-grid">
+                        <!-- Will be populated by JavaScript -->
                     </div>
-                    <div class="schedule-day mobility">
-                        <strong>Sunday</strong>
-                        <p>Optional Mobility</p>
+                </div>
+
+                <!-- Google Calendar Integration -->
+                <div style="margin-top: 40px;" class="google-calendar-section">
+                    <h3 style="margin-bottom: 15px;">Google Calendar Integration</h3>
+                    <div class="info-card">
+                        <p>Sync your training schedule to Google Calendar and create tasks for each workout day.</p>
+                        <div id="calendar-status" style="margin: 15px 0; padding: 10px; background: #f0f0f0; border-radius: 5px; display: none;">
+                            <p id="calendar-status-text" style="margin: 0;"></p>
+                        </div>
+                        <button id="google-signin-btn" class="save-button" onclick="handleGoogleSignIn()">Connect Google Calendar</button>
+                        <button id="google-sync-btn" class="save-button" onclick="syncToGoogleCalendar()" style="display: none;">Sync to Calendar</button>
+                        <button id="google-signout-btn" class="reset-button" onclick="handleGoogleSignOut()" style="display: none; margin-left: 10px;">Disconnect</button>
                     </div>
                 </div>
 

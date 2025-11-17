@@ -496,6 +496,98 @@ body {
     margin-bottom: 10px;
 }
 
+/* Schedule Picker Styles */
+.schedule-picker-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #ecf0f1;
+    margin-bottom: 20px;
+}
+
+.day-picker-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.day-picker-label {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.day-picker-label strong {
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.day-picker-description {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.day-picker-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.day-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.day-option input[type="radio"],
+.day-option input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.day-option span {
+    display: block;
+    padding: 8px 16px;
+    background: white;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    color: #2c3e50;
+    font-weight: 600;
+    transition: all 0.3s;
+    min-width: 50px;
+    text-align: center;
+}
+
+.day-option input:checked + span {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border-color: #3498db;
+}
+
+.day-option:hover span {
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.day-option:active span {
+    transform: translateY(0);
+}
+
+.google-calendar-section .info-card {
+    background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+}
+
 /* Mobile Optimizations */
 @media (max-width: 768px) {
     body {
@@ -563,6 +655,30 @@ body {
 
     .tracking-input {
         max-width: 100%;
+    }
+
+    .day-picker-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .day-picker-label {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .day-picker-options {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .day-option span {
+        min-width: 45px;
+        padding: 10px 14px;
+    }
+
+    .schedule-picker-container {
+        padding: 15px;
     }
 }
 
