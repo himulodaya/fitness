@@ -442,8 +442,10 @@ function updateSchedulePreview() {
 }
 
 // Google Calendar Integration
-const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID_HERE'; // User needs to set this up
-const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY_HERE'; // User needs to set this up
+// Credentials are loaded from config.js (not committed to repository)
+// See config.example.js for setup instructions
+const GOOGLE_CLIENT_ID = typeof GOOGLE_CONFIG !== 'undefined' ? GOOGLE_CONFIG.CLIENT_ID : 'YOUR_GOOGLE_CLIENT_ID_HERE';
+const GOOGLE_API_KEY = typeof GOOGLE_CONFIG !== 'undefined' ? GOOGLE_CONFIG.API_KEY : 'YOUR_GOOGLE_API_KEY_HERE';
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
