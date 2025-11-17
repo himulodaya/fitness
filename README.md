@@ -12,6 +12,24 @@ A Progressive Web App (PWA) for tracking the 6-week FORCE Preparation training p
 - **Progress Tracking**: Track exercise completion and add personal notes
 - **Fitness Challenges**: Monitor pre/post program fitness assessments
 - **6-Week Structure**: Complete workout plans for all 6 weeks
+- **Google Calendar Integration**: Schedule workouts directly to your Google Calendar
+
+## Google Calendar Setup
+
+To use the Google Calendar integration feature, you'll need to configure your Google API credentials:
+
+1. **Copy the configuration template:**
+   ```bash
+   cp config.example.js config.js
+   ```
+
+2. **Get your Google API credentials** from [Google Cloud Console](https://console.cloud.google.com/)
+
+3. **Update `config.js`** with your credentials
+
+For detailed setup instructions, see [SETUP.md](SETUP.md).
+
+**Important:** Never commit your `config.js` file with real API keys. It's already included in `.gitignore`.
 
 ## Installation
 
@@ -52,6 +70,8 @@ fitness/
 ├── app.js                  # Main application logic
 ├── workout-data.js         # Workout programs and exercises
 ├── cookie-storage.js       # Storage management utilities
+├── config.example.js       # Template for Google API configuration
+├── config.js               # Your Google API credentials (gitignored)
 ├── manifest.json           # PWA configuration
 ├── sw.js                   # Service worker for offline functionality
 ├── generate-icons.py       # Icon generation script
@@ -65,6 +85,8 @@ fitness/
 │   ├── icon-192.png
 │   ├── icon-384.png
 │   └── icon-512.png
+├── .gitignore             # Excludes config.js and other sensitive files
+├── SETUP.md               # Google Calendar API setup guide
 └── README.md              # This file
 ```
 
